@@ -12,15 +12,29 @@ function DrawBubblechart(sampleId)
 
 }
 
+
 function ShowMetaData(sampleId)
 {
     console.log('ShowMetaData(${sampleId})');
 
 }
+
 function DrawGauge(sampleId)
 {
     console.log('DrawGauge(${sampleId})');
+
 }
+
+
+function optionChanged(sampleId)
+{
+    console.log(`optionChanged: ${sampleId}`);
+    DrawBargraph(sampleId);
+    DrawBubblechart(sampleId);
+    ShowMetaData(sampleId);
+    DrawGauge(sampleId);
+}
+
 function InitDashboard() 
 { 
     console.log('InitDashboard()');
