@@ -96,7 +96,30 @@ function DrawBubblechart(sampleId)
 
 function ShowMetaData(sampleId)
 {
+    let MetaPanel = d3.select("#sample-metadata");
+    MetaPanel.html("");
+
     console.log('ShowMetaData(${sampleId})');
+    d3.json(url).then(data => {
+
+        let samples = data.samples;
+        let resultArray = samples.filter(s => s.id == sampleId);
+        let result = resultArray[0];
+
+        let otu_ids = result.otu_ids;
+        let otu_labels = result.otu_labels;
+        let sample_values = result.sample_values;
+
+        let DemographicInfo = data.metadata.filter(object =>object.id.toString() == sampleId)[0];
+        console.log(DemographicInfo);
+        
+        Object.entries(DemographicInfo).forEach(([key, value]) => {
+            MetaPanel.append("h6").text(`${key}: ${value}`)
+            
+        })
+        
+    
+    });
 
 }
 
