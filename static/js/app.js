@@ -1,4 +1,3 @@
-console.log('this is app.js')
 
 const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json"
 
@@ -70,7 +69,7 @@ function DrawBubblechart(sampleId)
             marker: {
                 size: sample_values, 
                 color: otu_ids,
-                //colorscale: "Earth"
+                colorscale: "Earth"
             }
         }
         //put the trace into an array 
@@ -123,11 +122,6 @@ function ShowMetaData(sampleId)
 
 }
 
-function DrawGauge(sampleId)
-{
-    console.log('DrawGauge(${sampleId})');
-
-}
 
 
 function optionChanged(sampleId)
@@ -156,7 +150,7 @@ function InitDashboard()
         //populate dropdown 
         for (let i = 0; i < sampleNames.length; i++) {
             let sampleId = sampleNames[i];
-            //console.log(`sampleId = ${sampleId}`);
+            console.log(`sampleId = ${sampleId}`);
             selector.append("option").text(sampleId).property("value", sampleId);
 
         }
@@ -174,7 +168,7 @@ function InitDashboard()
         //show the metadata for the selected sample id
         ShowMetaData(initialid);
 
-        //show the gauge
+        
     });
 }
 
